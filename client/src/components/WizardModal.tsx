@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, Sparkles, MessageCircle, Phone, ArrowLeft, ArrowRight } from "lucide-react";
+import logoImg from "@assets/logo album magico_1758127287037.png";
 
 // Import sample images for wizard
 import babyImg from "@assets/87735100-a949-4908-9b57-70f38a2ad938_1758126876414.jpg";
@@ -115,7 +116,15 @@ export default function WizardModal({ isOpen, onClose }: WizardModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-fredoka text-purple-800 flex items-center gap-2">
+          <div className="text-center mb-4">
+            <img 
+              src={logoImg} 
+              alt="El Álbum Mágico" 
+              className="h-16 mx-auto mb-2"
+              data-testid="img-wizard-logo"
+            />
+          </div>
+          <DialogTitle className="text-2xl font-fredoka text-purple-800 flex items-center justify-center gap-2">
             <Sparkles className="w-6 h-6" />
             Personaliza tu experiencia mágica
           </DialogTitle>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Star, Wand2 } from "lucide-react";
+import logoImg from "@assets/logo album magico_1758127287037.png";
 
 interface MagicalHeroProps {
   onStartWizard: () => void;
@@ -7,7 +8,7 @@ interface MagicalHeroProps {
 
 export default function MagicalHero({ onStartWizard }: MagicalHeroProps) {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Magical gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-blue-200 to-yellow-200" />
       
@@ -24,7 +25,15 @@ export default function MagicalHero({ onStartWizard }: MagicalHeroProps) {
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <div className="mb-8">
-          <Sparkles className="w-16 h-16 mx-auto mb-6 text-purple-600" />
+          {/* Logo prominente */}
+          <div className="mb-8">
+            <img 
+              src={logoImg} 
+              alt="El Álbum Mágico" 
+              className="w-48 md:w-64 mx-auto mb-4"
+              data-testid="img-hero-logo"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold text-purple-800 mb-6 font-fredoka leading-tight">
             Convierte tus fotos caseras en recuerdos mágicos ✨
           </h1>

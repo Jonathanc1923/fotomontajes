@@ -1,9 +1,11 @@
 import { useState } from "react";
+import Header from "@/components/Header";
 import MagicalHero from "@/components/MagicalHero";
 import WizardModal from "@/components/WizardModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PhotoGallery from "@/components/PhotoGallery";
 import FeatureSection from "@/components/FeatureSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [isWizardOpen, setIsWizardOpen] = useState(false);
@@ -18,10 +20,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <Header onStartWizard={startWizard} />
       <MagicalHero onStartWizard={startWizard} />
       
       {/* Gallery Section */}
-      <section className="py-16 px-6 bg-white">
+      <section id="gallery" className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <PhotoGallery maxItems={8} columns={4} />
           
@@ -42,10 +45,12 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <FeatureSection />
+      <section id="features">
+        <FeatureSection />
+      </section>
       
       {/* Final CTA Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center">
+      <section id="contact" className="py-16 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold font-fredoka mb-4">
             ¡No esperes más para crear magia! ✨
@@ -69,6 +74,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Footer />
+      
       <WizardModal isOpen={isWizardOpen} onClose={closeWizard} />
       <WhatsAppButton />
     </div>
