@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PhotoGallery from "@/components/PhotoGallery";
 import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
+import CountdownTimer from "@/components/CountdownTimer"; // 👈 importamos el contador
 
 export default function Home() {
   const [isWizardOpen, setIsWizardOpen] = useState(false);
@@ -20,6 +21,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Contador de promoción */}
+      <div className="py-4 px-6 bg-gradient-to-r from-pink-500 to-purple-600">
+        <div className="max-w-4xl mx-auto">
+          <CountdownTimer />
+        </div>
+      </div>
+
       <Header onStartWizard={startWizard} />
       <MagicalHero onStartWizard={startWizard} />
       
@@ -50,7 +58,10 @@ export default function Home() {
       </section>
       
       {/* Final CTA Section */}
-      <section id="contact" className="py-16 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center">
+      <section
+        id="contact"
+        className="py-16 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold font-fredoka mb-4">
             ¡No esperes más para crear magia! ✨
