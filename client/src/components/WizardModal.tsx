@@ -92,14 +92,31 @@ export default function WizardModal({ isOpen, onClose }: WizardModalProps) {
     }
   };
 
-  const handlePhoneSubmit = () => {
-    if (wizardData.phoneNumber.trim()) {
-      // TODO: Save data to backend
-      console.log('Saving wizard data with phone:', { ...wizardData, contactMethod: 'phone' });
-      alert('¡Gracias! Te llamaremos en unos minutos 📞');
-      onClose();
+  const handlePhoneSubmit = async () => {
+  if (wizardData.phoneNumber.trim()) {
+    try {
+      const res = await fetch("/api/save-number", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: wizardData.phoneNumber }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("✅ ¡Gracias! Tu número fue registrado, te llamaremos en unos minutos 📞");
+        setWizardData((prev) => ({ ...prev, phoneNumber: "", contactMethod: "" }));
+        onClose();
+      } else {
+        alert("⚠️ Ocurrió un error al guardar tu número, por favor intenta nuevamente.");
+      }
+    } catch (error) {
+      console.error("Error enviando número:", error);
+      alert("❌ No se pudo conectar con el servidor.");
     }
-  };
+  }
+};
+
 
   const canProceedStep1 = wizardData.photoTypes.length > 0;
   const canProceedStep2 = wizardData.themes.length > 0;
