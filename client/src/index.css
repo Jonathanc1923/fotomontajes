@@ -244,4 +244,77 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* Shooting stars animation */
+  .shooting-star,
+  .shooting-star-2,
+  .shooting-star-3 {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(45deg, #fbbf24, #f59e0b, transparent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: shooting 3s linear infinite;
+  }
+
+  .shooting-star {
+    top: 20%;
+    right: 100%;
+    animation-delay: 0s;
+  }
+
+  .shooting-star-2 {
+    top: 40%;
+    right: 100%;
+    animation-delay: 1.5s;
+    background: linear-gradient(45deg, #ec4899, #f97316, transparent);
+  }
+
+  .shooting-star-3 {
+    top: 60%;
+    right: 100%;
+    animation-delay: 2.5s;
+    background: linear-gradient(45deg, #8b5cf6, #a855f7, transparent);
+  }
+
+  @keyframes shooting {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) scale(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-50px) translateY(25px) scale(1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(-400px) translateY(200px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-450px) translateY(225px) scale(0);
+    }
+  }
+
+  .shooting-star::before,
+  .shooting-star-2::before,
+  .shooting-star-3::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 1px;
+    width: 30px;
+    background: linear-gradient(90deg, transparent, #fbbf24);
+    transform: translateY(-50%);
+  }
+
+  .shooting-star-2::before {
+    background: linear-gradient(90deg, transparent, #ec4899);
+  }
+
+  .shooting-star-3::before {
+    background: linear-gradient(90deg, transparent, #8b5cf6);
+  }
 }

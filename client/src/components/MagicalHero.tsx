@@ -9,17 +9,36 @@ interface MagicalHeroProps {
 export default function MagicalHero({ onStartWizard }: MagicalHeroProps) {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Magical gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-blue-200 to-yellow-200" />
+      {/* Magical gradient background - More yellow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 via-yellow-200 to-pink-200" />
       
-      {/* Floating stars */}
+      {/* Enhanced floating stars and shooting stars */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Original stars */}
         <Star className="absolute top-20 left-20 text-yellow-400 w-8 h-8 animate-pulse" />
         <Sparkles className="absolute top-32 right-32 text-pink-400 w-6 h-6 animate-pulse delay-75" />
         <Star className="absolute bottom-40 left-32 text-blue-400 w-5 h-5 animate-pulse delay-150" />
         <Wand2 className="absolute top-1/3 right-20 text-purple-400 w-7 h-7 animate-pulse delay-300" />
         <Sparkles className="absolute bottom-32 right-40 text-yellow-400 w-4 h-4 animate-pulse delay-450" />
         <Star className="absolute bottom-20 left-1/3 text-pink-400 w-6 h-6 animate-pulse delay-600" />
+        
+        {/* Additional stars */}
+        <Star className="absolute top-16 left-1/2 text-yellow-300 w-3 h-3 animate-pulse delay-700" />
+        <Sparkles className="absolute top-60 right-10 text-purple-300 w-5 h-5 animate-pulse delay-800" />
+        <Star className="absolute bottom-60 left-16 text-pink-300 w-4 h-4 animate-pulse delay-900" />
+        <Sparkles className="absolute top-80 left-40 text-yellow-500 w-3 h-3 animate-pulse delay-1000" />
+        <Star className="absolute bottom-80 right-24 text-purple-400 w-5 h-5 animate-pulse delay-1100" />
+        <Sparkles className="absolute top-96 right-1/4 text-pink-400 w-4 h-4 animate-pulse delay-1200" />
+        <Star className="absolute top-72 left-3/4 text-yellow-400 w-3 h-3 animate-pulse delay-1300" />
+        <Sparkles className="absolute bottom-96 right-1/3 text-purple-300 w-4 h-4 animate-pulse delay-1400" />
+        <Star className="absolute top-48 right-40 text-pink-300 w-5 h-5 animate-pulse delay-1500" />
+        
+        {/* Shooting stars container */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="shooting-star"></div>
+          <div className="shooting-star-2"></div>
+          <div className="shooting-star-3"></div>
+        </div>
       </div>
 
       {/* Main content */}
