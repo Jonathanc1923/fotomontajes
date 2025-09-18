@@ -6,7 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PhotoGallery from "@/components/PhotoGallery";
 import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
-import CountdownTimer from "@/components/CountdownTimer"; // 👈 importamos el contador
+import CountdownTimer from "@/components/CountdownTimer"; // 👈 contador
 
 export default function Home() {
   const [isWizardOpen, setIsWizardOpen] = useState(false);
@@ -21,8 +21,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Contador de promoción */}
-      <div className="py-4 px-6 bg-gradient-to-r from-pink-500 to-purple-600">
+      {/* Contador fijo arriba */}
+      <div className="sticky top-0 z-50 py-3 px-6 bg-gradient-to-r from-pink-500 to-purple-600 shadow-md">
         <div className="max-w-4xl mx-auto">
           <CountdownTimer />
         </div>
